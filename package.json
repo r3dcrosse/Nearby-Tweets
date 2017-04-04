@@ -1,0 +1,25 @@
+{
+  "name": "nearby-tweets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3dcrosse/nearby-tweets.git"
+  },
+  "author": "David Wayman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r3dcrosse/nearby-tweets/issues"
+  },
+  "homepage": "https://github.com/r3dcrosse/nearby-tweets#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "node": "^6.9.1"
+  }
+}
