@@ -22,4 +22,4 @@ git clone https://github.com/r3dcrosse/nearby-tweets.git && cd nearby-tweets
 npm install
 npm start
 ```
-Now open ![http://localhost:1337](http://localhost:1337) to run the app locally
+Now open [http://localhost:1337](http://localhost:1337) to run the app locally
