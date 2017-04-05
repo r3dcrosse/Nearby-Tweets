@@ -27,7 +27,8 @@ coverage
 build/Release
 
 # JS Bundle
-public
+public/bundle.js
+public/bundle.js.map
 
 # Dependency directories
 node_modules
