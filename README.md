@@ -11,7 +11,7 @@ Instead of viewing tweets based on who you follow, Nearby Tweets gives you an in
 
 ## Examples:
 
-# How to run Nearby Tweets locally
+## How to run Nearby Tweets locally
 Install dependencies:
 - node (6.9.1)
 - npm (3.10.8)
