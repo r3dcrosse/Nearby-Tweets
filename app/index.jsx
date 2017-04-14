@@ -2,15 +2,21 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers/index';
+import mySaga from './sagas';
 import AppContainer from './containers/AppContainer.jsx';
 import DevTools from './DevTools.jsx';
 import { persistState } from 'redux-devtools';
+
 
 const enhancer = compose(
   DevTools.instrument(),
   persistState(getDebugSessionKey())
 );
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
 function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&#]+)\b/);
@@ -19,8 +25,12 @@ function getDebugSessionKey() {
 
 const store = createStore(
   reducer,
-  enhancer
+  enhancer,
+  applyMiddleware(sagaMiddleware),
 );
+
+// then run the saga
+sagaMiddleware.run(mySaga);
 
 render((
   <Provider store={store}>

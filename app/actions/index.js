@@ -1,13 +1,9 @@
 export const REQUEST_GEOLOCATION = 'REQUEST_GEOLOCATION';
-export const RECEIVE_GEOLOCATION = 'RECEIVE_GEOLOCATION';
+export const GEOLOCATION_FETCH_SUCCEEDED = 'GEOLOCATION_FETCH_SUCCEEDED';
+export const GEOLOCATION_FETCH_FAILED = 'GEOLOCATION_FETCH_FAILED';
 
 export const requestGeoLocation = () => ({
   type: REQUEST_GEOLOCATION
-});
-
-export const receiveGeoLocation = currentGeoLoc => ({
-  type: RECEIVE_GEOLOCATION,
-  currentGeoLoc
 });
 
 // const getCurrentGeoLoc = () => dispatch => {

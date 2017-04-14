@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import {
   REQUEST_GEOLOCATION,
-  RECEIVE_GEOLOCATION
+  RECEIVE_GEOLOCATION,
+  GEOLOCATION_FETCH_SUCCEEDED,
+  GEOLOCATION_FETCH_FAILED
 } from '../actions';
 
 const initialState = {
@@ -19,13 +21,17 @@ export function geoLocation(state = initialState, action) {
         ...state,
         isGettingCurrentGeoLoc: true
       }
-
-    case RECEIVE_GEOLOCATION:
-      return Object.assign({}, state, {
-        isGettingCurrentGeoLoc: false,
-        currentGeoLoc: action.currentGeoLoc
-      });
-
+    case GEOLOCATION_FETCH_SUCCEEDED: {
+      return {
+        ...state,
+        currentGeoLoc: action.currentGeoLoc,
+        isGettingCurrentGeoLoc: false
+      }
+    }
+    case GEOLOCATION_FETCH_FAILED: {
+      console.log(action.message);
+      return state;
+    }
     default:
       return state
   }
