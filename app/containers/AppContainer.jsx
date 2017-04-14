@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
   return {
     requestGeoLocation: () => dispatch(requestGeoLocation())
   }
-}
+};
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
 

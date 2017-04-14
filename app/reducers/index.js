@@ -12,30 +12,31 @@ const initialState = {
     longitude: undefined
   },
   isGettingCurrentGeoLoc: false
-}
+};
 
 export function geoLocation(state = initialState, action) {
   switch (action.type) {
-    case REQUEST_GEOLOCATION:
+    case REQUEST_GEOLOCATION: {
       return {
         ...state,
         isGettingCurrentGeoLoc: true
-      }
+      };
+    };
     case GEOLOCATION_FETCH_SUCCEEDED: {
       return {
         ...state,
         currentGeoLoc: action.currentGeoLoc,
         isGettingCurrentGeoLoc: false
-      }
-    }
+      };
+    };
     case GEOLOCATION_FETCH_FAILED: {
       console.log(action.message);
       return state;
-    }
+    };
     default:
-      return state
-  }
-}
+      return state;
+  };
+};
 
 const rootReducer = combineReducers({
   geoLocation
