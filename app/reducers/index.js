@@ -7,10 +7,8 @@ import {
 } from '../actions';
 
 const initialState = {
-  currentGeoLoc: {
-    latitude: undefined,
-    longitude: undefined
-  },
+  latitude: undefined,
+  longitude: undefined,
   isGettingCurrentGeoLoc: false
 };
 
@@ -25,7 +23,8 @@ export function geoLocation(state = initialState, action) {
     case GEOLOCATION_FETCH_SUCCEEDED: {
       return {
         ...state,
-        currentGeoLoc: action.currentGeoLoc,
+        latitude: action.coords.lat,
+        longitude: action.coords.lng,
         isGettingCurrentGeoLoc: false
       };
     };

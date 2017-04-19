@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { requestGeoLocation } from '../actions';
+import { requestGeoLocation, setCustomGeoLocation } from '../actions';
 import App from '../components/App.jsx';
 
 const mapStateToProps = state => {
-  const { currentGeoLoc, isGettingCurrentGeoLoc } = state;
+  const { geoLocation } = state;
 
   return {
-    currentGeoLoc: currentGeoLoc,
-    isGettingCurrentGeoLoc: isGettingCurrentGeoLoc
+    latitude: geoLocation.latitude,
+    longitude: geoLocation.longitude,
+    isGettingCurrentGeoLoc: geoLocation.isGettingCurrentGeoLoc
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestGeoLocation: () => dispatch(requestGeoLocation())
+    requestGeoLocation: () => dispatch(requestGeoLocation()),
+    setCustomGeoLocation: (coords) => dispatch(setCustomGeoLocation(coords))
   }
 };
 
