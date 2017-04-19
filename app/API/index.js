@@ -1,20 +1,26 @@
 import Promise from 'bluebird';
 
-var fetchCoords = new Promise((resolve, reject) => {
-  var locateMe = navigator.geolocation.getCurrentPosition((position) => {
-    resolve(position);
+////////////////////////////////////////////////////////////////////////////////
+// Geo Location helpers
+////////////////////////////////////////////////////////////////////////////////
+/*
+  locateMe returns a promise that sends back a coordinates object
+*/
+const locateMe = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      resolve(position.coords);
+    });
   });
-});
+};
 
-export const getGeoCoords = () => {
+// Fancy async handling for the interfacing with the navigator/geolocation API
+async function fetchCurrentGeoLocation() {
+  return await locateMe();
+};
 
-  var location = {}
-
-  fetchCoords.then(function({ coords }) {
-    location.latitude = coords.latitude;
-    location.longitude = coords.longitude;
-  });
-
-  return location;
-
-}
+// Exposed helper function for use in redux sagas
+export function getGeoCoords() {
+  return fetchCurrentGeoLocation();
+};
+////////////////////////////////////////////////////////////////////////////////
