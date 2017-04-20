@@ -5,7 +5,7 @@ import FetchTweetsButton from './FetchTweetsButton.jsx';
 
 class App extends Component {
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
+    // console.log(newProps);
   }
 
   render() {

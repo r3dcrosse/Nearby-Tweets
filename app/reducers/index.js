@@ -4,14 +4,17 @@ import {
   RECEIVE_GEOLOCATION,
   GEOLOCATION_FETCH_SUCCEEDED,
   GEOLOCATION_FETCH_FAILED,
-  FETCH_TWEETS
+  FETCH_TWEETS,
+  TWEETS_FETCH_SUCCEEDED,
+  TWEETS_FETCH_FAILED
 } from '../actions';
 
 const initialState = {
   latitude: undefined,
   longitude: undefined,
   isGettingCurrentGeoLoc: false,
-  isFetchingTweets: false
+  isFetchingTweets: false,
+  tweets: undefined
 };
 
 export function geoLocation(state = initialState, action) {
@@ -35,13 +38,24 @@ export function geoLocation(state = initialState, action) {
       return state;
     };
     case FETCH_TWEETS: {
-      console.log(action.latitude);
-      console.log(action.longitude);
       return {
         ...state,
         isFetchingTweets: true
       }
     };
+    case TWEETS_FETCH_SUCCEEDED: {
+      return {
+        ...state,
+        isFetchingTweets: false,
+        tweets: action.tweets
+      }
+    };
+    case TWEETS_FETCH_FAILED: {
+      return {
+        ...state,
+        isFetchingTweets: false
+      }
+    }
     default:
       return state;
   };

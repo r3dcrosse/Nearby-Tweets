@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/r3dcrosse/nearby-tweets#readme",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
