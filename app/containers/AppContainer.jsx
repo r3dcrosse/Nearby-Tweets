@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   requestGeoLocation,
+  cancelGeoReq,
   setCustomGeoLocation,
   fetchTweets } from '../actions';
 import App from '../components/App.jsx';
@@ -21,6 +22,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     requestGeoLocation: () => dispatch(requestGeoLocation()),
+    cancelGeoReq: () => dispatch(cancelGeoReq()),
     setCustomGeoLocation: (coords) => dispatch(setCustomGeoLocation(coords)),
     fetchTweets: (lat, lng) => dispatch(fetchTweets(lat, lng))
   }

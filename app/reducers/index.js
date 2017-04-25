@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {
   REQUEST_GEOLOCATION,
+  CANCEL_GEOLOCATION_REQUEST,
   RECEIVE_GEOLOCATION,
   GEOLOCATION_FETCH_SUCCEEDED,
   GEOLOCATION_FETCH_FAILED,
@@ -25,6 +26,12 @@ export function geoLocation(state = initialState, action) {
         isGettingCurrentGeoLoc: true
       };
     };
+    case CANCEL_GEOLOCATION_REQUEST: {
+      return {
+        ...state,
+        isGettingCurrentGeoLoc: false
+      }
+    }
     case GEOLOCATION_FETCH_SUCCEEDED: {
       return {
         ...state,

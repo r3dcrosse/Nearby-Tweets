@@ -12,8 +12,9 @@ class App extends Component {
     const {
       latitude, longitude,
       setCustomGeoLocation,
-      requestGeoLocation,
-      fetchTweets } = this.props;
+      requestGeoLocation, cancelGeoReq,
+      fetchTweets,
+      isGettingCurrentGeoLoc } = this.props;
 
     return (
       <div>
@@ -24,6 +25,8 @@ class App extends Component {
         />
         <CurrentLocationButton
           reqGeoLoc={ () => requestGeoLocation() }
+          cancelGeoReq={ () => cancelGeoReq() }
+          isGettingCurrentGeoLoc={ isGettingCurrentGeoLoc }
         />
         <FetchTweetsButton
           onFetchTweets={ () => fetchTweets(latitude, longitude) }
