@@ -1,4 +1,5 @@
 const APIrouter = require('express').Router();
+const fakedata = require('./fakedata.js');
 
 APIrouter.route('/')
   .get((request, response) => {
@@ -10,7 +11,7 @@ APIrouter.route('/')
 
     // else make the request to the twitter API
     response.status(200).send({
-      tweets: ['fake', 'data', 'tweets']
+      tweets: fakedata
     });
   });
 
