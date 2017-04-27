@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CustomCoorinates from './CustomCoordinates.jsx';
 import CurrentLocationButton from './CurrentLocationButton.jsx';
 import FetchTweetsButton from './FetchTweetsButton.jsx';
-import TweetList from './TweetList.jsx';
+import TweetListContainer from '../containers/TweetListContainer.jsx';
 
 class App extends Component {
   componentWillReceiveProps(newProps) {
@@ -33,7 +33,7 @@ class App extends Component {
           onFetchTweets={ () => fetchTweets(latitude, longitude) }
         />
         <div>
-          <TweetList />
+          <TweetListContainer />
         </div>
       </div>
     )

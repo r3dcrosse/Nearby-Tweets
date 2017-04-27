@@ -15,7 +15,7 @@ const initialState = {
   longitude: undefined,
   isGettingCurrentGeoLoc: false,
   isFetchingTweets: false,
-  tweets: undefined
+  tweets: []
 };
 
 export function geoLocation(state = initialState, action) {
@@ -54,7 +54,7 @@ export function geoLocation(state = initialState, action) {
       return {
         ...state,
         isFetchingTweets: false,
-        tweets: action.tweets
+        tweets: action.tweets.statuses
       }
     };
     case TWEETS_FETCH_FAILED: {

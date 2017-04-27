@@ -9,7 +9,7 @@ import {
 import App from '../components/App.jsx';
 
 const mapStateToProps = state => {
-  const { geoLocation, tweets } = state;
+  const { geoLocation } = state;
 
   return {
     latitude: geoLocation.latitude,
